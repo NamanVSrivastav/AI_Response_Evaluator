@@ -1,0 +1,12 @@
+websockets==11.0.3
+pytest==7.3.1
+websockets
+sentence-transformers
+asyncio
+redis
+unittest
+functools
+logic
+logic.cache
+logic.evaluator
+logging
