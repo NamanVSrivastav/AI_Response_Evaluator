@@ -107,6 +107,25 @@ Run unit tests:
 - python -m unittest discover tests
 
 
+## Prompt Engineering in This Project:
+Prompt Engineering ensures that the input (question and response pair) is structured in a way that allows the Sentence-Transformer model to accurately evaluate the response.
+- The question and response must be clearly defined and related to the topic for the model to assess their semantic similarity.
+- Ambiguous or unclear inputs would degrade the model's evaluation quality, so the prompt needs to be specific and relevant.
+
+## NLP in This Project:
+Natural Language Processing (NLP) is used to analyze the similarity between the question and response.
+
+- Sentence Embeddings:
+  The Sentence-Transformer model (all-MiniLM-L6-v2) converts both the question and the response into numerical vectors (embeddings) that represent their meaning.
+- Cosine Similarity:
+   The model calculates the cosine similarity between these embeddings to determine how similar the response is to the question.
+- High similarity (>0.8): "Great answer!"
+- Moderate similarity (0.5-0.8): "Good attempt, but room for improvement."
+- Low similarity (<0.5): "Consider revisiting the topic."
+  
+By using NLP, this project evaluates responses based on their semantic meaning rather than just exact word matching, providing more accurate and context-aware feedback
+
+
 ## Future Improvements
 - Error handling: More robust error handling for edge cases like connection timeouts or invalid inputs.
 - Enhanced Feedback: Expand feedback generation with more nuanced responses.
