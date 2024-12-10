@@ -3,7 +3,7 @@ import websockets
 import json
 
 async def send_question_response(question, response):
-    """Send a question and response to the WebSocket server."""
+   
     async with websockets.connect("ws://localhost:8765") as websocket:
         
         message = json.dumps({"question": question, "response": response})
@@ -14,7 +14,7 @@ async def send_question_response(question, response):
         print("Feedback from server:", feedback)
 
 async def main():
-    """Main function to ask for user input and send it to the server."""
+   
     print("Welcome to the AI Response Evaluation System!")
     
     while True:
