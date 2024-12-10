@@ -7,7 +7,7 @@ from logic.logic import analyze_response
 logging.basicConfig(level=logging.INFO)
 
 async def handle_client(websocket, path):
-    """Handle WebSocket connections and requests."""
+   
     logging.info(f"Connected to {websocket.remote_address}")
     
     try:
@@ -21,7 +21,6 @@ async def handle_client(websocket, path):
                     await websocket.send(json.dumps({"error": "Both question and response are required."}))
                     continue
 
-                # Process response
                 result = analyze_response(question, response)
                 await websocket.send(json.dumps(result))
 
@@ -34,10 +33,9 @@ async def handle_client(websocket, path):
         logging.error(f"Error: {e}")
 
 async def main():
-    """Start the WebSocket server."""
     async with websockets.serve(handle_client, "localhost", 8765):
         logging.info("WebSocket server running at ws://localhost:8765")
-        await asyncio.Future()  # Keep running
+        await asyncio.Future()  
 
 if __name__ == "__main__":
     asyncio.run(main())
