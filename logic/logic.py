@@ -4,7 +4,7 @@ from logic.evaluator import evaluate_response
 
 @lru_cache(maxsize=100)
 def analyze_response(question, response):
-    """Analyze a student's response using caching and evaluation."""
+    
     cache_key = f"{question}_{response}"
     
     # Check cached result
